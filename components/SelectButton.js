@@ -26,7 +26,7 @@ export default function SelectButton({ internetConnection ,country, state, count
 	return (
 		<View style={styles.container}>
 			<TouchableRipple style={styles.button} onPress={onPress}>
-				<View style={{ flexDirection: 'row', alignItems: 'center' }}>
+				<View style={styles.buttonContent}>
 					<Text>{country}</Text>
 					{(country === 'Global' || country2ISO2[country]) && <Text> </Text>}	
 					{(country === 'Global' || country2ISO2[country]) && <Image style={{ width: 15, height: 15 }} source={country === 'Global' ? Images.globe : { uri: flagOf(country2ISO2[country]) }} />}
@@ -35,7 +35,7 @@ export default function SelectButton({ internetConnection ,country, state, count
 
 			{state && 
 				<TouchableRipple style={styles.button} onPress={() => triggerSelectState(true)}>
-					<View style={{ flexDirection: 'row', alignItems: 'center' }}>
+					<View style={{ alignItems: 'center' }}>
 						<Text>{state}</Text>
 					</View>
 				</TouchableRipple>
@@ -65,6 +65,10 @@ const styles = StyleSheet.create({
 		shadowColor: 'black',
 		shadowOpacity: .25,
 		elevation: 6,
+	},
+	buttonContent: {
+		alignItems: 'center',
+		flexDirection: 'row', 
 	},
 	container: {
 		position: 'absolute',

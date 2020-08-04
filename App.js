@@ -71,6 +71,7 @@ export default function App() {
 					active: action.active,
 					critical: action.critical,
 					updated: action.updated,
+					isLoading: false,
 				}
 			case 'STATE_CHANGE':
 				return {
@@ -199,17 +200,10 @@ export default function App() {
 	}), [])
 
 	useEffect(() => {
+		dataContext.getAsyncStorageNumbers()
 		NetInfo.addEventListener(dataContext.connectionChange)
-	}, [])
-
-	useEffect(() => {
 		SplashScreen.hide()
 	}, [])
-
-	useEffect(() => {
-		if (dataState.country === 'Global' && !dataState.internetConnection)
-			dataContext.getAsyncStorageNumbers()
-	}, [dataState.internetConnection])
 
 	useEffect(() => {
 		if (dataState.internetConnection)

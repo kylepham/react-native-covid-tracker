@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect, Fragment } from 'react'
 import { Button } from 'react-native-paper'
-import { StyleSheet, View, Animated, TouchableOpacity, Dimensions, TouchableWithoutFeedback } from 'react-native'
+import { StyleSheet, View, Animated, TouchableOpacity, Dimensions } from 'react-native'
 import { OptimizedFlatList } from 'react-native-optimized-flatlist'
 
 import { fetchStates } from '../assets/api'
